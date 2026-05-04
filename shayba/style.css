@@ -1,0 +1,670 @@
+/* ============================================================
+   Birthday for Miss Shayba — Theme & Layout
+============================================================ */
+
+:root{
+  --bg-1:#1a0b22;
+  --bg-2:#3a1240;
+  --bg-3:#6a1b5f;
+  --pink:#ff8fc0;
+  --pink-2:#ff5da2;
+  --rose:#c3186e;
+  --gold:#ffd86b;
+  --gold-2:#e8a72a;
+  --cream:#fff5fb;
+  --ink:#1c0f24;
+  --shadow: 0 25px 60px -15px rgba(0,0,0,0.55);
+  --r-lg:22px;
+  --r-md:14px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Poppins',system-ui,-apple-system,sans-serif;
+  color:var(--cream);
+  background: radial-gradient(ellipse at 20% -10%, #ff7eb3 0%, transparent 45%),
+              radial-gradient(ellipse at 110% 0%, #ffd86b 0%, transparent 40%),
+              linear-gradient(160deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+  background-attachment:fixed;
+  overflow-x:hidden;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============================================================
+   Floating sky / petals / sparkles
+============================================================ */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.aurora{
+  position:absolute;inset:-20%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,143,192,0.35), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,216,107,0.25), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(195,24,110,0.35), transparent 50%);
+  filter:blur(40px);
+  animation:auroraDrift 22s ease-in-out infinite alternate;
+}
+@keyframes auroraDrift{
+  0%{transform:translate(0,0) scale(1)}
+  100%{transform:translate(-3%,3%) scale(1.05)}
+}
+.stars{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff8 50%, transparent 60%),
+    radial-gradient(1px 1px at 33% 42%, #fff6 50%, transparent 60%),
+    radial-gradient(1px 1px at 58% 22%, #ffd86b 50%, transparent 60%),
+    radial-gradient(1px 1px at 78% 58%, #fff8 50%, transparent 60%),
+    radial-gradient(1px 1px at 88% 14%, #ff8fc0 50%, transparent 60%),
+    radial-gradient(1px 1px at 22% 78%, #fff6 50%, transparent 60%),
+    radial-gradient(1px 1px at 47% 86%, #ffd86b 50%, transparent 60%),
+    radial-gradient(1px 1px at 67% 92%, #fff8 50%, transparent 60%);
+  background-size:1200px 900px;
+  animation:twinkle 4s ease-in-out infinite alternate;
+  opacity:.85;
+}
+@keyframes twinkle{
+  0%{opacity:.5}
+  100%{opacity:1}
+}
+
+.petals{position:absolute;inset:0}
+.petal{
+  position:absolute;
+  width:18px;height:14px;
+  background:radial-gradient(circle at 30% 30%, #ffc7e1, #ff7eb3 70%);
+  border-radius:60% 40% 60% 40% / 40% 60% 40% 60%;
+  filter:drop-shadow(0 4px 8px rgba(255,90,150,0.35));
+  opacity:.85;
+  animation: fall linear infinite;
+}
+.petal.p1 {left:5%; top:-10%; animation-duration:14s; animation-delay:0s; transform:rotate(20deg)}
+.petal.p2 {left:18%; top:-20%; animation-duration:18s; animation-delay:2s; transform:rotate(60deg); width:14px;height:11px}
+.petal.p3 {left:34%; top:-15%; animation-duration:16s; animation-delay:4s; transform:rotate(-30deg)}
+.petal.p4 {left:50%; top:-25%; animation-duration:20s; animation-delay:1s; width:22px;height:16px}
+.petal.p5 {left:64%; top:-10%; animation-duration:15s; animation-delay:3s; transform:rotate(45deg)}
+.petal.p6 {left:78%; top:-22%; animation-duration:19s; animation-delay:5s; transform:rotate(-15deg); width:13px;height:10px}
+.petal.p7 {left:90%; top:-12%; animation-duration:17s; animation-delay:6s; transform:rotate(30deg)}
+.petal.p8 {left:25%; top:-30%; animation-duration:22s; animation-delay:7s; width:16px;height:12px}
+.petal.p9 {left:55%; top:-18%; animation-duration:13s; animation-delay:2.5s; transform:rotate(-50deg)}
+.petal.p10{left:72%; top:-28%; animation-duration:21s; animation-delay:8s}
+
+@keyframes fall{
+  0%{transform:translate3d(0,-10vh,0) rotate(0deg);opacity:0}
+  10%{opacity:.85}
+  100%{transform:translate3d(40px,110vh,0) rotate(360deg);opacity:0}
+}
+
+/* ============================================================
+   Scenes
+============================================================ */
+main{position:relative;z-index:1;min-height:100vh}
+.scene{
+  display:none;
+  min-height:100vh;
+  width:100%;
+  padding:48px 24px;
+  align-items:center;
+  justify-content:center;
+  animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.scene.active{display:flex}
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* ============================================================
+   Scene 1 — Welcome / Gift box
+============================================================ */
+.welcome-card{
+  max-width:560px;
+  text-align:center;
+  padding:30px 20px;
+}
+.kicker{
+  font-family:'Dancing Script',cursive;
+  font-size: clamp(20px, 3.5vw, 28px);
+  color: var(--gold);
+  letter-spacing:.02em;
+  margin-bottom:6px;
+}
+.hero-name{
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height:1;
+  background: linear-gradient(180deg, #fff 0%, #ffd6ec 60%, #ffd86b 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow: 0 6px 30px rgba(255,143,192,0.35);
+  margin-bottom:14px;
+  letter-spacing:.5px;
+}
+.sub{
+  color:#fde7f1;
+  opacity:.9;
+  font-size: clamp(14px,2vw,17px);
+  margin-bottom:34px;
+}
+
+.giftbox{
+  position:relative;
+  width:230px;height:230px;
+  margin:0 auto;
+  cursor:pointer;
+  outline:none;
+  user-select:none;
+  filter: drop-shadow(0 30px 30px rgba(195,24,110,0.45));
+}
+.giftbox:focus-visible{outline:2px solid var(--gold);outline-offset:8px;border-radius:18px}
+.gift-svg{width:100%;height:100%;overflow:visible}
+.box-lid{transform-origin: 110px 80px; transition: transform .8s cubic-bezier(.2,.9,.2,1.4);}
+.bow{transform-origin: 110px 70px; animation: wiggle 2.4s ease-in-out infinite;}
+@keyframes wiggle{
+  0%,100%{transform:rotate(-3deg) translateY(0)}
+  50%{transform:rotate(3deg) translateY(-2px)}
+}
+.giftbox.opening .box-lid{ transform: translateY(-90px) rotate(-8deg); }
+.giftbox.opening .glow-core{ animation: blast 1.1s ease-out forwards; }
+@keyframes blast{
+  0%{opacity:0; transform:scale(0.4)}
+  40%{opacity:1; transform:scale(1.6)}
+  100%{opacity:0; transform:scale(3.2)}
+}
+.tap-hint{
+  position:absolute;left:50%;bottom:-26px;
+  transform:translateX(-50%);
+  font-family:'Dancing Script', cursive;
+  font-size:22px;color:#ffeebd;
+  text-shadow:0 2px 10px rgba(0,0,0,0.45);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}
+  50%{opacity:1;transform:translateX(-50%) scale(1.05)}
+}
+.signature{margin-top:54px}
+.signature .from{
+  font-family:'Dancing Script',cursive;
+  font-size:20px;
+  color:#fff5fb;
+  opacity:.7;
+}
+
+/* ============================================================
+   Scene 2 — Wizard
+============================================================ */
+.wizard{
+  width:100%;
+  max-width:640px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--r-lg);
+  padding:30px;
+  box-shadow: var(--shadow);
+}
+.wizard-head{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:28px;
+}
+.progress{
+  flex:1;height:8px;border-radius:99px;
+  background: rgba(255,255,255,0.12);
+  overflow:hidden;
+  position:relative;
+}
+.progress .bar{
+  display:block;height:100%;width:0%;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  border-radius:99px;
+  transition: width .55s cubic-bezier(.2,.7,.2,1);
+  box-shadow:0 0 18px var(--pink);
+}
+.step-counter{
+  font-family:'Playfair Display', serif;
+  letter-spacing:.05em;
+  font-size:14px;
+  color:#ffd6ec;
+  opacity:.8;
+}
+
+.step-stage{
+  min-height:340px;
+  display:flex;align-items:center;justify-content:center;
+}
+.step{
+  width:100%;
+  display:none;
+  animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both;
+}
+.step.active{display:block}
+.step h2{
+  font-family:'Playfair Display', serif;
+  font-size: clamp(24px, 3.4vw, 32px);
+  margin-bottom:8px;
+  color:#fff;
+}
+.step .accent{
+  font-family:'Dancing Script', cursive;
+  color: var(--gold);
+  font-size: clamp(28px, 4vw, 38px);
+  display:block;
+  margin-bottom:14px;
+}
+.step p.lead{
+  color:#ffd6ec;
+  margin-bottom:24px;
+  font-size:15px;
+  opacity:.85;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.options.one{ grid-template-columns:1fr; }
+.opt{
+  appearance:none;border:0;cursor:pointer;text-align:left;
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:14px;
+  padding:16px 18px;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  font-family:inherit;
+  transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+}
+.opt:hover{
+  background: rgba(255,143,192,0.18);
+  border-color: rgba(255,216,107,0.6);
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px -10px rgba(255,143,192,0.5);
+}
+.opt.selected{
+  background: linear-gradient(135deg, rgba(255,143,192,0.35), rgba(255,216,107,0.25));
+  border-color: var(--gold);
+  box-shadow:0 14px 30px -12px rgba(255,216,107,0.6);
+}
+
+.text-input{
+  width:100%;
+  background: rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+  border-radius:14px;
+  padding:14px 16px;
+  font-size:15px;
+  font-family:inherit;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.text-input:focus{
+  border-color: var(--gold);
+  box-shadow:0 0 0 4px rgba(255,216,107,0.25);
+}
+.text-input::placeholder{color:rgba(255,255,255,0.5)}
+
+.wizard-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:28px;
+}
+.primary-btn,.ghost-btn{
+  appearance:none;border:0;cursor:pointer;font-family:inherit;
+  font-size:15px;font-weight:600;
+  padding:13px 22px;border-radius:99px;
+  transition:transform .2s, box-shadow .2s, opacity .2s;
+}
+.primary-btn{
+  background: linear-gradient(135deg, var(--pink-2), var(--gold-2));
+  color:#21041a;
+  box-shadow: 0 12px 30px -8px rgba(255,93,162,0.55);
+}
+.primary-btn:hover:not(:disabled){ transform:translateY(-2px); box-shadow:0 18px 36px -10px rgba(255,93,162,0.7);}
+.primary-btn:disabled{opacity:.45;cursor:not-allowed}
+.ghost-btn{
+  background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,0.25);
+}
+.ghost-btn:hover:not(:disabled){ background:rgba(255,255,255,0.08);}
+.ghost-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ============================================================
+   Scene 3 — Celebration
+============================================================ */
+.celebration{
+  width:100%;
+  max-width:760px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.cel-title{
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size: clamp(28px, 5vw, 44px);
+  color:#fff;
+  margin-bottom:8px;
+}
+.cel-title span{
+  background: linear-gradient(90deg, var(--gold), var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cel-sub{
+  color:#ffd6ec;opacity:.85;
+  margin-bottom:24px;
+  font-size:15px;
+}
+
+.cake-stage{
+  position:relative;
+  max-width:560px;
+  margin:0 auto 12px;
+  filter: drop-shadow(0 35px 35px rgba(0,0,0,0.45));
+}
+.cake-svg{width:100%;height:auto;display:block}
+.cake-shadow{
+  position:absolute;left:8%;right:8%;bottom:-8px;height:30px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.6), transparent 70%);
+  filter: blur(8px);
+  z-index:-1;
+}
+
+/* candles */
+.candle{cursor:pointer;outline:none}
+.candle:focus-visible{ filter: drop-shadow(0 0 6px var(--gold)); }
+.flame{ transform-origin: center bottom; animation: flicker 220ms ease-in-out infinite alternate; }
+@keyframes flicker{
+  0%{transform: scale(1, 0.96) translateY(0)}
+  50%{transform: scale(0.96, 1.04) translateY(-1px)}
+  100%{transform: scale(1.04, 0.97) translateY(0)}
+}
+.candle.out .flame{ animation: smokeOut .5s ease-out forwards; }
+@keyframes smokeOut{
+  0%{opacity:1; transform: scale(1) translateY(0)}
+  50%{opacity:.6; transform: scale(0.4) translateY(-8px)}
+  100%{opacity:0; transform: scale(0.1) translateY(-18px)}
+}
+
+/* final message */
+.final-message{
+  margin-top:18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--r-lg);
+  padding:28px 26px;
+  box-shadow: var(--shadow);
+  opacity:0;
+  transform: translateY(14px);
+  pointer-events:none;
+  transition: opacity .8s ease, transform .8s ease;
+}
+.final-message.show{ opacity:1; transform:translateY(0); pointer-events:auto;}
+.final-title{
+  font-family:'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  color:#fff; margin-bottom:14px;
+}
+.final-title span{
+  background: linear-gradient(90deg, var(--gold), var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.final-text{
+  color:#ffeaf3;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height:1.7;
+  max-width:520px;margin:0 auto 20px;
+}
+.final-text em{ color: var(--gold); font-style:italic; font-weight:600;}
+.final-actions{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.signed{
+  font-family:'Dancing Script',cursive;
+  font-size:22px;
+  color:#ffd6ec;opacity:.85;
+}
+
+/* ============================================================
+   Dua card — blessings from the sender
+============================================================ */
+.dua-card{
+  position:relative;
+  margin: 28px auto 0;
+  max-width:640px;
+  padding: 30px 26px 26px;
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,216,107,0.18), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,216,107,0.35);
+  box-shadow: var(--shadow), 0 0 60px -20px rgba(255,216,107,0.45);
+  overflow:hidden;
+  opacity:0;
+  transform: translateY(18px);
+  transition: opacity .9s ease .15s, transform .9s ease .15s;
+}
+.dua-card.show{ opacity:1; transform:translateY(0); }
+
+/* shimmery gold border accent */
+.dua-card::before{
+  content:"";
+  position:absolute; inset:0;
+  border-radius: inherit;
+  padding:1px;
+  background: linear-gradient(135deg, rgba(255,216,107,0.7), rgba(255,143,192,0.25), rgba(255,216,107,0.7));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events:none;
+  opacity:.7;
+}
+
+.dua-ornament{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+.dua-ornament .line{
+  flex:1;max-width:90px;height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,216,107,0.7), transparent);
+}
+.dua-ornament .emblem{
+  font-size:24px;
+  filter: drop-shadow(0 4px 10px rgba(255,216,107,0.55));
+}
+
+.dua-eyebrow{
+  font-family:'Dancing Script', cursive;
+  text-align:center;
+  color: var(--gold);
+  font-size: clamp(18px, 2.6vw, 22px);
+  letter-spacing:.02em;
+  margin-bottom:6px;
+}
+.dua-title{
+  font-family:'Playfair Display', serif;
+  text-align:center;
+  font-weight:700;
+  font-size: clamp(22px, 3.4vw, 30px);
+  color:#fff;
+  margin-bottom:22px;
+}
+.dua-title span{
+  background: linear-gradient(90deg, var(--gold), var(--pink));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+.dua-list{
+  list-style:none;
+  padding:0;
+  margin: 0 auto;
+  max-width:560px;
+  display:flex; flex-direction:column; gap:14px;
+}
+.dua-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.10);
+  border-radius:14px;
+  padding:14px 16px;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+.dua-list li:hover{
+  background: rgba(255,143,192,0.10);
+  border-color: rgba(255,216,107,0.35);
+  transform: translateY(-1px);
+}
+.dua-list .dot{
+  flex:0 0 auto;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;
+  border-radius:50%;
+  background: linear-gradient(135deg, rgba(255,216,107,0.35), rgba(255,143,192,0.35));
+  color: var(--gold);
+  font-size:13px;
+  margin-top:2px;
+  box-shadow: 0 0 12px rgba(255,216,107,0.35) inset;
+}
+.dua-list p{
+  margin:0;
+  color:#fdeef6;
+  font-size: clamp(14px, 2vw, 15.5px);
+  line-height:1.65;
+  text-align:left;
+}
+.dua-list em{ color: var(--gold); font-style:italic; font-weight:600; }
+
+.dua-amen{
+  font-family:'Playfair Display', serif;
+  text-align:center;
+  font-weight:700;
+  font-size: clamp(20px, 3vw, 26px);
+  color:#fff;
+  margin: 22px 0 6px;
+  letter-spacing:.04em;
+}
+
+.dua-signature{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;
+  margin-top:6px;
+}
+.dua-signature .ribbon{
+  flex:0 0 auto;
+  width:38px;height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+}
+.dua-signature p{
+  font-family:'Dancing Script', cursive;
+  font-size: clamp(16px, 2.4vw, 19px);
+  color:#ffd6ec;
+  opacity:.85;
+  margin:0;
+}
+
+/* ============================================================
+   Confetti
+============================================================ */
+.confetti-layer{
+  position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1;
+}
+.confetti-piece{
+  position:absolute;
+  width:10px;height:14px;
+  top:-20px;
+  border-radius:2px;
+  opacity:.9;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall{
+  0%{transform: translate3d(0,-10vh,0) rotate(0deg); opacity:0}
+  10%{opacity:1}
+  100%{transform: translate3d(var(--dx,0), 110vh, 0) rotate(720deg); opacity:.9}
+}
+
+/* ============================================================
+   Toast
+============================================================ */
+.toast{
+  position:fixed;left:50%;bottom:36px;
+  transform: translateX(-50%) translateY(40px);
+  background: rgba(20,8,28,0.85);
+  border:1px solid rgba(255,255,255,0.18);
+  color:#fff;font-size:14px;font-weight:500;
+  padding:12px 18px;border-radius:99px;
+  backdrop-filter: blur(10px);
+  opacity:0;transition: opacity .3s, transform .3s;
+  z-index:99;
+}
+.toast.show{ opacity:1; transform: translateX(-50%) translateY(0);}
+
+/* ============================================================
+   Mobile
+============================================================ */
+@media (max-width: 720px){
+  .scene{padding:36px 14px 56px}
+  .options{grid-template-columns:1fr}
+  .cel-title{ margin-bottom:6px; }
+  .final-actions{ flex-direction:column; }
+  .final-actions button{ width:100%; }
+}
+
+@media (max-width: 540px){
+  .scene{padding:28px 12px 56px}
+  .wizard{padding:20px 16px; border-radius:18px}
+  .step-stage{ min-height:300px }
+  .giftbox{width:190px;height:190px}
+  .signature{ margin-top:40px }
+
+  .cake-stage{ max-width: 96vw; }
+  /* even chunkier candle tap targets on tiny screens */
+  .candle{ touch-action: manipulation; }
+  .candle .hit{ pointer-events: all; }
+
+  .final-message{ padding:22px 18px; border-radius:18px; }
+  .final-text{ font-size:14.5px; line-height:1.65 }
+
+  .dua-card{ padding:24px 16px 22px; border-radius:18px; margin-top:22px; }
+  .dua-list li{ padding:12px 14px; gap:10px; border-radius:12px; }
+  .dua-list .dot{ width:22px;height:22px; font-size:11px; }
+  .dua-list p{ font-size:14px; line-height:1.6; }
+  .dua-ornament .line{ max-width:60px; }
+  .dua-amen{ margin-top:18px; }
+
+  .primary-btn,.ghost-btn{ padding:13px 20px; font-size:14.5px; }
+}
+
+/* very small phones */
+@media (max-width: 360px){
+  .hero-name{ font-size: 44px; }
+  .step h2{ font-size:20px; }
+  .step .accent{ font-size:24px; }
+  .cel-title{ font-size:24px; }
+  .dua-title{ font-size:20px; }
+}
+
+/* prevent overflow on rotated landscape phones */
+@media (max-height: 520px) and (orientation: landscape){
+  .scene{ padding:22px 14px; }
+  .step-stage{ min-height:auto }
+  .giftbox{ width:160px; height:160px; }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  .petals,.aurora,.stars{ display:none; }
+}
