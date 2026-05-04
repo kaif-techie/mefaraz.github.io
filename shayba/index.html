@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+<title>A surprise for Shayba</title>
+<meta name="description" content="A little something for the most wonderful soul. Open it up." />
+<meta property="og:title" content="A surprise for Shayba" />
+<meta property="og:description" content="A little something for the most wonderful soul. Open it up." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Floating petals & sparkles backdrop -->
+<div class="sky" aria-hidden="true">
+  <div class="aurora"></div>
+  <div class="stars"></div>
+  <div class="petals">
+    <span class="petal p1"></span>
+    <span class="petal p2"></span>
+    <span class="petal p3"></span>
+    <span class="petal p4"></span>
+    <span class="petal p5"></span>
+    <span class="petal p6"></span>
+    <span class="petal p7"></span>
+    <span class="petal p8"></span>
+    <span class="petal p9"></span>
+    <span class="petal p10"></span>
+  </div>
+</div>
+
+<main id="app">
+
+<!-- ============================================================
+     SCENE 1 — WELCOME / GIFT BOX
+============================================================ -->
+<section class="scene scene-1 active" id="scene-1" aria-label="Welcome">
+  <div class="welcome-card">
+    <p class="kicker">A little surprise made just for</p>
+    <h1 class="hero-name">Shayba</h1>
+    <p class="sub">Tap the gift to open your moment ✨</p>
+
+    <div class="giftbox" id="giftbox" role="button" tabindex="0" aria-label="Open the gift">
+      <svg viewBox="0 0 220 220" class="gift-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="boxGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff6fa8"/>
+            <stop offset="100%" stop-color="#c3186e"/>
+          </linearGradient>
+          <linearGradient id="lidGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff8fc0"/>
+            <stop offset="100%" stop-color="#d92684"/>
+          </linearGradient>
+          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffd86b"/>
+            <stop offset="100%" stop-color="#e8a72a"/>
+          </linearGradient>
+          <radialGradient id="shine" cx="0.3" cy="0.3" r="0.6">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.7)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </radialGradient>
+        </defs>
+        <!-- box body -->
+        <g class="box-body">
+          <rect x="35" y="100" width="150" height="100" rx="8" fill="url(#boxGrad)"/>
+          <rect x="35" y="100" width="150" height="100" rx="8" fill="url(#shine)" opacity="0.55"/>
+          <rect x="103" y="100" width="14" height="100" fill="url(#ribbonGrad)"/>
+        </g>
+        <!-- lid -->
+        <g class="box-lid">
+          <rect x="25" y="80" width="170" height="30" rx="6" fill="url(#lidGrad)"/>
+          <rect x="25" y="80" width="170" height="30" rx="6" fill="url(#shine)" opacity="0.55"/>
+          <rect x="103" y="80" width="14" height="30" fill="url(#ribbonGrad)"/>
+          <!-- bow -->
+          <g class="bow">
+            <ellipse cx="85" cy="68" rx="22" ry="16" fill="url(#ribbonGrad)"/>
+            <ellipse cx="135" cy="68" rx="22" ry="16" fill="url(#ribbonGrad)"/>
+            <circle cx="110" cy="68" r="9" fill="#b27a14"/>
+            <circle cx="110" cy="68" r="6" fill="#ffd86b"/>
+          </g>
+        </g>
+        <!-- glow -->
+        <circle class="glow-core" cx="110" cy="100" r="50" fill="#fff7c2" opacity="0"/>
+      </svg>
+      <span class="tap-hint">Tap me</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCENE 2 — CELEBRATION (CAKE)
+============================================================ -->
+<section class="scene scene-3" id="scene-3" aria-label="Birthday celebration">
+
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <div class="celebration">
+    <h2 class="cel-title">Make a wish, <span>Shayba</span> 🎂</h2>
+    <p class="cel-sub" id="celSub">Tap each candle to blow it out…</p>
+
+    <!-- chocolate cake SVG -->
+    <div class="cake-stage">
+      <svg viewBox="0 0 520 480" class="cake-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Chocolate birthday cake">
+        <defs>
+          <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff7ec"/>
+            <stop offset="100%" stop-color="#e9d6b6"/>
+          </linearGradient>
+          <linearGradient id="choc1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#6b3a1d"/>
+            <stop offset="60%" stop-color="#4a2410"/>
+            <stop offset="100%" stop-color="#321608"/>
+          </linearGradient>
+          <linearGradient id="choc2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7a4321"/>
+            <stop offset="100%" stop-color="#3a1c0c"/>
+          </linearGradient>
+          <linearGradient id="frosting" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff5fb"/>
+            <stop offset="100%" stop-color="#ffd9eb"/>
+          </linearGradient>
+          <linearGradient id="ganache" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7a3917"/>
+            <stop offset="100%" stop-color="#3b1808"/>
+          </linearGradient>
+          <radialGradient id="flameCore" cx="0.5" cy="0.7" r="0.6">
+            <stop offset="0%" stop-color="#fffce0"/>
+            <stop offset="40%" stop-color="#ffd35a"/>
+            <stop offset="100%" stop-color="#ff7a18"/>
+          </radialGradient>
+          <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0%" stop-color="rgba(255,200,90,0.6)"/>
+            <stop offset="100%" stop-color="rgba(255,200,90,0)"/>
+          </radialGradient>
+        </defs>
+
+        <!-- plate -->
+        <ellipse cx="260" cy="430" rx="220" ry="22" fill="#caa97a" opacity="0.55"/>
+        <ellipse cx="260" cy="420" rx="210" ry="20" fill="url(#plate)"/>
+        <ellipse cx="260" cy="416" rx="200" ry="14" fill="#fffaf0" opacity="0.6"/>
+
+        <!-- bottom tier -->
+        <rect x="80" y="320" width="360" height="100" rx="10" fill="url(#choc1)"/>
+        <!-- ganache drips bottom -->
+        <path d="M80,330
+                 q10,18 22,0 q10,22 24,0 q10,18 22,2 q12,22 22,0
+                 q10,18 22,0 q10,22 22,0 q10,18 22,2 q12,22 22,0
+                 q10,18 22,0 q10,22 22,0 q10,18 22,2 q12,22 22,0
+                 q10,18 22,0 q10,22 22,0 q10,18 22,2 q12,22 22,0
+                 L440,320 L80,320 Z" fill="url(#ganache)"/>
+        <!-- bottom highlights -->
+        <rect x="80" y="320" width="360" height="6" fill="#000" opacity="0.18"/>
+
+        <!-- piped frosting between tiers -->
+        <g>
+          <circle cx="100" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="125" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="150" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="175" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="200" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="225" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="250" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="275" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="300" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="325" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="350" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="375" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="400" cy="318" r="9" fill="url(#frosting)"/>
+          <circle cx="420" cy="318" r="9" fill="url(#frosting)"/>
+        </g>
+
+        <!-- middle tier -->
+        <rect x="125" y="230" width="270" height="90" rx="8" fill="url(#choc2)"/>
+        <!-- ganache drips middle -->
+        <path d="M125,238
+                 q10,18 20,0 q10,22 20,0 q10,18 20,2 q10,22 20,0
+                 q10,18 20,0 q10,22 20,0 q10,18 20,2 q10,22 20,0
+                 q10,18 20,0 q10,22 20,0 q10,18 20,2 q10,22 20,0
+                 q10,18 20,0
+                 L395,230 L125,230 Z" fill="url(#ganache)"/>
+
+        <!-- frosting roses on middle tier -->
+        <g>
+          <circle cx="155" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="180" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="205" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="230" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="255" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="280" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="305" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="330" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="355" cy="228" r="8" fill="url(#frosting)"/>
+          <circle cx="380" cy="228" r="8" fill="url(#frosting)"/>
+        </g>
+
+        <!-- top tier -->
+        <rect x="180" y="155" width="160" height="75" rx="6" fill="url(#choc1)"/>
+        <!-- ganache drips top -->
+        <path d="M180,162
+                 q9,16 18,0 q9,20 18,0 q9,16 18,2 q9,20 18,0
+                 q9,16 18,0 q9,20 18,0 q9,16 18,2 q9,20 18,0
+                 q9,16 18,0
+                 L340,155 L180,155 Z" fill="url(#ganache)"/>
+        <!-- top tier sprinkles -->
+        <g class="sprinkles">
+          <rect x="195" y="190" width="6" height="2" fill="#ffd86b" transform="rotate(20 195 190)"/>
+          <rect x="220" y="200" width="6" height="2" fill="#ff8fc0" transform="rotate(-20 220 200)"/>
+          <rect x="250" y="185" width="6" height="2" fill="#9be7ff" transform="rotate(45 250 185)"/>
+          <rect x="280" y="200" width="6" height="2" fill="#ffd86b" transform="rotate(60 280 200)"/>
+          <rect x="305" y="190" width="6" height="2" fill="#b6f0a8" transform="rotate(-15 305 190)"/>
+          <rect x="320" y="205" width="6" height="2" fill="#ff8fc0" transform="rotate(30 320 205)"/>
+          <rect x="210" y="215" width="6" height="2" fill="#c8a2ff" transform="rotate(-40 210 215)"/>
+          <rect x="265" y="215" width="6" height="2" fill="#ffd86b" transform="rotate(10 265 215)"/>
+          <rect x="295" y="215" width="6" height="2" fill="#ff8fc0" transform="rotate(-25 295 215)"/>
+        </g>
+
+        <!-- frosting roses on top tier -->
+        <g>
+          <circle cx="200" cy="153" r="7" fill="url(#frosting)"/>
+          <circle cx="225" cy="153" r="7" fill="url(#frosting)"/>
+          <circle cx="250" cy="153" r="7" fill="url(#frosting)"/>
+          <circle cx="275" cy="153" r="7" fill="url(#frosting)"/>
+          <circle cx="300" cy="153" r="7" fill="url(#frosting)"/>
+          <circle cx="325" cy="153" r="7" fill="url(#frosting)"/>
+        </g>
+
+        <!-- candles -->
+        <g class="candle" data-candle="1" tabindex="0" role="button" aria-label="Candle 1">
+          <!-- big invisible hit-target for mobile fingers -->
+          <rect class="hit" x="200" y="50" width="42" height="115" fill="transparent"/>
+          <rect x="216" y="98" width="10" height="55" fill="#ff8fc0"/>
+          <rect x="216" y="98" width="10" height="55" fill="url(#shine)" opacity="0.3"/>
+          <rect x="216" y="108" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="216" y="124" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="216" y="140" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <line x1="221" y1="92" x2="221" y2="98" stroke="#3a2a17" stroke-width="2"/>
+          <g class="flame">
+            <ellipse cx="221" cy="80" rx="14" ry="22" fill="url(#halo)"/>
+            <path class="flame-shape" d="M221,60 C232,72 232,92 221,98 C210,92 210,72 221,60 Z" fill="url(#flameCore)"/>
+            <ellipse cx="221" cy="86" rx="3" ry="6" fill="#3a86ff" opacity="0.7"/>
+          </g>
+        </g>
+
+        <g class="candle" data-candle="2" tabindex="0" role="button" aria-label="Candle 2">
+          <rect class="hit" x="240" y="38" width="42" height="125" fill="transparent"/>
+          <rect x="255" y="86" width="10" height="67" fill="#ffd86b"/>
+          <rect x="255" y="86" width="10" height="67" fill="url(#shine)" opacity="0.3"/>
+          <rect x="255" y="100" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="255" y="118" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="255" y="136" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <line x1="260" y1="80" x2="260" y2="86" stroke="#3a2a17" stroke-width="2"/>
+          <g class="flame">
+            <ellipse cx="260" cy="68" rx="14" ry="22" fill="url(#halo)"/>
+            <path class="flame-shape" d="M260,48 C271,60 271,80 260,86 C249,80 249,60 260,48 Z" fill="url(#flameCore)"/>
+            <ellipse cx="260" cy="74" rx="3" ry="6" fill="#3a86ff" opacity="0.7"/>
+          </g>
+        </g>
+
+        <g class="candle" data-candle="3" tabindex="0" role="button" aria-label="Candle 3">
+          <rect class="hit" x="278" y="50" width="42" height="115" fill="transparent"/>
+          <rect x="294" y="98" width="10" height="55" fill="#c8a2ff"/>
+          <rect x="294" y="98" width="10" height="55" fill="url(#shine)" opacity="0.3"/>
+          <rect x="294" y="108" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="294" y="124" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <rect x="294" y="140" width="10" height="3" fill="#ffffff" opacity="0.7"/>
+          <line x1="299" y1="92" x2="299" y2="98" stroke="#3a2a17" stroke-width="2"/>
+          <g class="flame">
+            <ellipse cx="299" cy="80" rx="14" ry="22" fill="url(#halo)"/>
+            <path class="flame-shape" d="M299,60 C310,72 310,92 299,98 C288,92 288,72 299,60 Z" fill="url(#flameCore)"/>
+            <ellipse cx="299" cy="86" rx="3" ry="6" fill="#3a86ff" opacity="0.7"/>
+          </g>
+        </g>
+      </svg>
+      <div class="cake-shadow"></div>
+    </div>
+
+    <!-- final message (revealed after candles blown) -->
+    <div class="final-message" id="finalMessage" aria-live="polite">
+      <h3 class="final-title">Happy Birthday, <span>Shayba</span></h3>
+      <div class="final-actions">
+        <button type="button" class="primary-btn" id="replayBtn">Relight the candles 🔥</button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         DUA — heartfelt blessings from the sender
+    ============================================================ -->
+    <section class="dua-card" id="duaCard" aria-label="A dua for you">
+      <div class="dua-ornament" aria-hidden="true">
+        <span class="line"></span>
+        <span class="emblem">🤲</span>
+        <span class="line"></span>
+      </div>
+
+      <p class="dua-eyebrow">A little dua for you</p>
+
+      <ul class="dua-list">
+        <li>
+          <span class="dot">✦</span>
+          <p>May Allah fulfil every quiet dream you carry in your heart — the loud ones, the soft ones, and the ones you haven't dared to whisper yet.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>May you always be happy — and on the days happiness feels far, may you be strong enough to wait for it without losing your light.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>May your journey be beautiful — full of golden mornings, gentle people, and a heart that recognises every blessing as it arrives.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>May you enjoy every moment — the loud laughter, the quiet wins, and the in-between days that quietly shape who you are becoming.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>May you keep learning something new every single day — and may every new chapter be better, brighter, and kinder than the one before.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>May Allah make your everything — your work, your love, your health, your home — better and better, until <em>better</em> is the only direction you know.</p>
+        </li>
+        <li>
+          <span class="dot">✦</span>
+          <p>And may you always be surrounded by people who see you the way I do — soft, brilliant, and impossible to replace.</p>
+        </li>
+      </ul>
+
+      <p class="dua-amen">Aameen 🤍</p>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<!-- audio cue (optional, silent unless interacted) -->
+<audio id="popSfx" preload="auto">
+  <source src="data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=" type="audio/wav"/>
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
